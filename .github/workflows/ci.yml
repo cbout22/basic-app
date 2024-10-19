@@ -1,0 +1,15 @@
+name: CI Workflow
+
+on:
+    push: {}
+
+jobs:
+    first-job:
+        runs-on: self-hosted
+        timeout-minutes: 15
+        environment: DEV
+        env:
+            MY_VAR: "xxxx"
+        steps:
+            -   name: Hello world
+                run: echo ${{ env.MY_VAR }}
