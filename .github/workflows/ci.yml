@@ -6,10 +6,16 @@ on:
 jobs:
     first-job:
         runs-on: self-hosted
+        container: 
+            image: ubuntu:latest
         timeout-minutes: 15
-        environment: DEV
         env:
             MY_VAR: "xxxx"
         steps:
             -   name: Hello world
                 run: echo ${{ env.MY_VAR }}
+
+            -   name: Setup Python
+                uses: actions/setup-python@v5.2.0
+                with:
+                    python-version: "3.10"
